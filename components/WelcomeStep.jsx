@@ -1,12 +1,12 @@
 import { WhiteBlock } from "./WhiteBlock";
 import { ArrowRightIcon } from '@heroicons/react/20/solid';
-// import Image from 'next/image';
+import Image from 'next/image';
 
 export const WelcomeStep = ({setStepState}) => {
     return (
         <WhiteBlock classes="m-auto">
             <h1 className="mb-2 text-2xl font-bold flex items-center">
-                <img className="w-10 mr-2" src="/hand.png" alt="logo hand" />
+                <Image src="/hand.png" width={50} height={41} alt="logo hand" className="mr-2"/>
                 Welcome to Clubhouse
             </h1>
             <p className="mb-4">

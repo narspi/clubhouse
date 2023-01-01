@@ -2,6 +2,7 @@ import { useRef, useEffect, useState } from "react";
 import { WhiteBlock } from "./WhiteBlock";
 import { StepInfo } from "./StepInfo";
 import { ArrowRightIcon } from "@heroicons/react/20/solid";
+import Image from 'next/image';
 
 export const ChooseAvatarStep = ({ setStepState }) => {
   const inputFileRef = useRef();
@@ -28,7 +29,7 @@ export const ChooseAvatarStep = ({ setStepState }) => {
         descr="How's this photo?"
       />
       <WhiteBlock classes="min-w-[300px]">
-        <img className="mb-2 w-24" src={avatarUrl? avatarUrl :"/anknown.svg"} alt="avatar" />
+        <Image width={96} height={96} className="mb-2 w-24" src={avatarUrl? avatarUrl :"/anknown.svg"} alt="avatar" />
         <label
           className="text-xs opacity-75 hover:underline cursor-pointer mb-2"
           htmlFor="image"

@@ -1,6 +1,7 @@
 import { WhiteBlock } from "./WhiteBlock";
 import { StepInfo } from "./StepInfo";
 import { ArrowRightIcon } from "@heroicons/react/20/solid";
+import Image from 'next/image';
 
 export const EnterPhoneStep = () => {
     return (
