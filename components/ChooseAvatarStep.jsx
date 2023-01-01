@@ -39,7 +39,7 @@ export const ChooseAvatarStep = ({ setStepState }) => {
         <button
           className="px-10 py-2 bg-blue-500 text-white text-lg rounded-full inline-flex items-center justify-center cursor-pointer mb-2 whitespace-nowrap"
           onClick={() => {
-            setStepState(4);
+            setStepState(0);
           }}
         >
           Next
