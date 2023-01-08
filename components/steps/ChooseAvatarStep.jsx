@@ -1,5 +1,5 @@
 import { useRef, useEffect, useState } from "react";
-import { WhiteBlock } from "./WhiteBlock";
+import { WhiteBlock } from "../WhiteBlock";
 import { StepInfo } from "./StepInfo";
 import { ArrowRightIcon } from "@heroicons/react/20/solid";
 import Image from 'next/image';
@@ -16,7 +16,6 @@ export const ChooseAvatarStep = ({ setStepState }) => {
   };
 
   useEffect(() => {
-    console.log("useEffect");
     inputFileRef.current.addEventListener("change", handleChangeImage);
   }, []);
 
@@ -40,7 +39,7 @@ export const ChooseAvatarStep = ({ setStepState }) => {
         <button
           className="px-10 py-2 bg-blue-500 text-white text-lg rounded-full inline-flex items-center justify-center cursor-pointer mb-2 whitespace-nowrap"
           onClick={() => {
-            setStepState(0);
+            setStepState(4);
           }}
         >
           Next

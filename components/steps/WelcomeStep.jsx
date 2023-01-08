@@ -1,4 +1,4 @@
-import { WhiteBlock } from "./WhiteBlock";
+import { WhiteBlock } from "../WhiteBlock";
 import { ArrowRightIcon } from '@heroicons/react/20/solid';
 import Image from 'next/image';
 
