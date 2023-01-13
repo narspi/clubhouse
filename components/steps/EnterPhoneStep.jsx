@@ -1,4 +1,5 @@
-import { useState } from "react";
+import { useState, useContext } from "react";
+import { MainContext } from "../../pages";
 import clsx from "clsx";
 import { WhiteBlock } from "../WhiteBlock";
 import { StepInfo } from "./StepInfo";
@@ -6,10 +7,11 @@ import { ArrowRightIcon } from "@heroicons/react/20/solid";
 import Image from "next/image";
 import { PatternFormat } from "react-number-format";
 
-export const EnterPhoneStep = ({setStepState}) => {
+export const EnterPhoneStep = () => {
   const [values, setInputValues] = useState({});
   const [inputOutline, setInputOutline] = useState(false);
   const nextDisabled = !values.formattedValue || values.formattedValue.includes('_');
+  const { onNextStep } = useContext(MainContext);
   
   return (
     <div className="m-auto">
@@ -28,7 +30,7 @@ export const EnterPhoneStep = ({setStepState}) => {
             height={30}
           />
           <PatternFormat
-            format="+# (###) ###-##-##"
+            format="+7 (###) ###-##-##"
             mask="_"
             placeholder="+7 (999) 333-22-11"
             className="ml-2 outline-none"
@@ -39,9 +41,7 @@ export const EnterPhoneStep = ({setStepState}) => {
         </label>
         <button
           className="mb-4 px-10 py-2 bg-blue-500 text-white text-lg rounded-full inline-flex items-center justify-center cursor-pointer whitespace-nowrap disabled:bg-slate-300"
-          onClick={() => {
-            setStepState(5);
-          }}
+          onClick={onNextStep}
           disabled={nextDisabled}
         >
           Next

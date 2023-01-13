@@ -1,12 +1,14 @@
-import { useRef, useEffect, useState } from "react";
+import { useRef, useEffect, useState, useContext } from "react";
+import { MainContext } from "../../pages";
 import { WhiteBlock } from "../WhiteBlock";
 import { StepInfo } from "./StepInfo";
 import { ArrowRightIcon } from "@heroicons/react/20/solid";
 import Image from 'next/image';
 
-export const ChooseAvatarStep = ({ setStepState }) => {
+export const ChooseAvatarStep = () => {
   const inputFileRef = useRef();
   const [avatarUrl,setAvatarUrl] = useState('');
+  const { onNextStep } = useContext(MainContext);
 
   const handleChangeImage = e => {
     const file = e.target.files[0];
@@ -28,7 +30,7 @@ export const ChooseAvatarStep = ({ setStepState }) => {
         descr="How's this photo?"
       />
       <WhiteBlock classes="min-w-[300px]">
-        <Image width={96} height={96} className="mb-2 w-24" src={avatarUrl? avatarUrl :"/anknown.svg"} alt="avatar" />
+        <Image width={100} height={100} className="mb-2" src={avatarUrl? avatarUrl :"/anknown.svg"} alt="avatar" />
         <label
           className="text-xs opacity-75 hover:underline cursor-pointer mb-2"
           htmlFor="image"
@@ -38,9 +40,7 @@ export const ChooseAvatarStep = ({ setStepState }) => {
         <input id="image" ref={inputFileRef} hidden type="file" />
         <button
           className="px-10 py-2 bg-blue-500 text-white text-lg rounded-full inline-flex items-center justify-center cursor-pointer mb-2 whitespace-nowrap"
-          onClick={() => {
-            setStepState(4);
-          }}
+          onClick={onNextStep}
         >
           Next
           <ArrowRightIcon className="w-4 ml-1 relative top-px"/>

@@ -5,11 +5,12 @@ import { ArrowRightIcon } from "@heroicons/react/20/solid";
 import coreAxios from '../../core/axios';
 import { useRouter } from "next/router";
 
-export const EnterCodeStep = ({ setStepState }) => {
+export const EnterCodeStep = () => {
   const router = useRouter();
   const [isLoading, setIsLoading] = useState(false);
   const [codes, setCodes] = useState(["", "", "", ""]);
   const nextDisabled = codes.some((v) => !v);
+
 
   const handleChangeInput = (e) => {
     const id = Number(e.target.getAttribute("id")) - 1;

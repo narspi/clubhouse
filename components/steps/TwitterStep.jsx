@@ -1,8 +1,12 @@
+import { useContext } from "react";
+import { MainContext } from "../../pages";
 import { WhiteBlock } from "../WhiteBlock";
 import { StepInfo } from "./StepInfo";
 import { ArrowRightIcon } from "@heroicons/react/20/solid";
 
-export const TwitterStep = ({ setStepState }) => {
+export const TwitterStep = () => {
+  const { onNextStep } = useContext(MainContext);
+
   return (
     <div className="m-auto">
       <StepInfo
@@ -22,9 +26,7 @@ export const TwitterStep = ({ setStepState }) => {
         </h2>
         <button
           className="px-10 py-2 bg-blue-500 text-white text-lg rounded-full inline-flex items-center justify-center cursor-pointer mb-2 whitespace-nowrap"
-          onClick={() => {
-            setStepState(3);
-          }}
+          onClick={onNextStep}
         >
           Next
           <ArrowRightIcon className="w-4 ml-1 relative top-px"/>
