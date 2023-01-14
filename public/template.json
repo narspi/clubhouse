@@ -1,0 +1,14 @@
+[
+    '{{repeat(10)}}',
+    {
+      id: '{{objectId()}}',
+      title: '{{lorem(1)}}',
+      avatars: ['https://source.unsplash.com/random/100×100/?avatar/1','https://source.unsplash.com/random/100×100/?avatar/2'],
+      guests: [
+      '{{repeat(3)}}',
+      '{{firstName()}} {{surname()}}'
+      ],
+      guestsCount: '{{integer(5, 300)}}',
+      speakersCount: '{{integer(5, 30)}}'
+    }
+  ]

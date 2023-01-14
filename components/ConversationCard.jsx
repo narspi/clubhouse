@@ -1,9 +1,10 @@
 import Image from "next/image";
 import { ChatBubbleOvalLeftEllipsisIcon } from "@heroicons/react/20/solid";
 import { UserIcon } from "@heroicons/react/20/solid";
-import Link from 'next/link';
+import Link from "next/link";
 
 export const ConversationCard = ({
+  id,
   title,
   avatars,
   guests,
@@ -11,9 +12,9 @@ export const ConversationCard = ({
   speakersCount,
 }) => {
   return (
-    <Link className="bg-white rounded-3xl p-6" href='/profile/12'>
-      <h3 className="font-bold text-xl mb-2">{title}</h3>
-      <div className="flex items-start">
+    <Link className="bg-white rounded-3xl p-6 flex flex-col" href={`/rooms/${id}`}>
+      <h3 className="font-bold text-xl mb-2 line-clamp-2 overflow-hidden text-ellipsis">{title}</h3>
+      <div className="flex items-start mt-auto">
         <div className="relative w-10 h-10">
           <div className="absolute w-10 h-10">
             <Image
