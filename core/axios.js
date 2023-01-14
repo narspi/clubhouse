@@ -1,7 +1,7 @@
 import Axios from "axios";
 
 const instanse = Axios.create({
-    baseURL: 'http://localhost:3000',
+    baseURL: 'https://clubhouse-chi.vercel.app/',
     withCredentials: true
 })
 
