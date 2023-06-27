@@ -1,3 +1,5 @@
+const file = require('../public/data.json');
+
 import { Wrapper } from "../components/Wrapper";
 import { Header } from "../components/Header";
 import { PlusIcon } from "@heroicons/react/20/solid";
@@ -7,14 +9,6 @@ import { useEffect, useState } from "react";
 
 const Rooms = (props) => {
   const [rooms, setRooms] = useState(props.obj);
-
-  // useEffect(() => {
-  //   (async () => {
-  //     const res = await axios.get("/data.json");
-  //     const data = res.data;
-  //     setRooms(data);
-  //   })();
-  // }, []);
 
   return (
     <Wrapper>
@@ -63,16 +57,26 @@ const Rooms = (props) => {
 export default Rooms;
 
 export const getServerSideProps = async () => {
-  let data = [];
-  try {
-    const res = await coreAxios.get("/data.json");
-    data = res.data;
-  } catch (e) {
-    console.log(e);
-  }
+  let data = file;
+  // try {
+  //   const res = await coreAxios.get("/data.json");
+  //   data = res.data;
+  //   return {
+  //     props: {
+  //       obj: data,
+  //     },
+  //   };
+  // } catch (e) {
+    
+  //   return {
+  //     props: {
+  //       obj: [],
+  //     },
+  //   };
+  // }
   return {
     props: {
-      obj: data,
-    },
-  };
+      obj: file
+    }
+  }
 };

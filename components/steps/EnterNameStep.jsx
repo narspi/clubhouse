@@ -5,8 +5,8 @@ import { StepInfo } from "./StepInfo";
 import { ArrowRightIcon } from "@heroicons/react/20/solid";
 
 export const EnterNameStep = () => {
-  const { onNextStep } = useContext(MainContext);
-  const [inputValue,setInputValue] = useState('');
+  const { onNextStep,userData } = useContext(MainContext);
+  const [inputValue,setInputValue] = useState(userData.fullName? userData.fullName: '');
 
   const handlerChangeInput = e => {
     setInputValue(e.target.value);
@@ -28,6 +28,7 @@ export const EnterNameStep = () => {
           type="text"
           placeholder="Enter full name"
           onChange={handlerChangeInput}
+          value={inputValue}
         />
         <button
           className="px-8 py-2 bg-blue-500 text-white text-lg rounded-full inline-flex items-center justify-center cursor-pointer whitespace-nowrap disabled:bg-slate-300"
