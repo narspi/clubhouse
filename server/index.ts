@@ -98,10 +98,10 @@ app.post("/auth/sms", passport.authenticate("jwt"), async (req, res) => {
     const userId = req.user.id;
 
     try {
-      const data = await Axios.get(
-        `https://sms.ru/sms/send?api_id=${Config.smsApiKey}&to=79871268292&msg=${smsCode}&json=1`
-      );
-      const codeData = await Code.create({
+      // const data = await Axios.get(
+      //   `https://sms.ru/sms/send?api_id=${Config.smsApiKey}&to=79871268292&msg=${smsCode}&json=1`
+      // );
+      await Code.create({
         code: smsCode,
         user_id: userId,
       });
