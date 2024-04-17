@@ -18,18 +18,23 @@ const Steps = {
   5: EnterCodeStep,
 };
 
+interface ITUserData {
+  avatarUrl?: string;
+  fullName?: string;
+}
+
 interface ITMainContext {
   setStepState: Dispatch<SetStateAction<number>>;
   onNextStep: () => void;
-  userData: Object;
+  userData: ITUserData;
   setUserData: Dispatch<SetStateAction<{}>>;
 }
 
 export const MainContext = createContext<ITMainContext>({} as ITMainContext);
 
 const Home = () => {
-  const [stepState, setStepState] = useState(0);
-  const [userData, setUserData] = useState({});
+  const [stepState, setStepState] = useState<number>(0);
+  const [userData, setUserData] = useState<ITUserData>({});
   const Step = Steps[stepState];
   const onNextStep = () => {
     setStepState(prev=>prev + 1);

@@ -1,4 +1,4 @@
-import { useState, useContext } from "react";
+import { useState, useContext, Dispatch, SetStateAction } from "react";
 import { MainContext } from "../../pages";
 import clsx from "clsx";
 import { WhiteBlock } from "../WhiteBlock";
@@ -7,8 +7,13 @@ import { ArrowRightIcon } from "@heroicons/react/20/solid";
 import Image from "next/image";
 import { PatternFormat } from "react-number-format";
 
+interface ITValues {
+  value?: string;
+  formattedValue?: string;
+}
+
 export const EnterPhoneStep = () => {
-  const [values, setInputValues] = useState({});
+  const [values, setInputValues] = useState<ITValues>({});
   const [inputOutline, setInputOutline] = useState(false);
   const nextDisabled = !values.formattedValue || values.formattedValue.includes('_');
   const { onNextStep } = useContext(MainContext);

@@ -1,4 +1,4 @@
-import { useState, useContext } from "react";
+import { useState, useContext, ChangeEvent } from "react";
 import { MainContext } from "../../pages";
 import { WhiteBlock } from "../WhiteBlock";
 import { StepInfo } from "./StepInfo";
@@ -11,15 +11,16 @@ export const ChooseAvatarStep = () => {
   const [avatarUrl, setAvatarUrl] = useState(
     userData.avatarUrl ? userData.avatarUrl : ""
   );
-  
-  const handleChangeImage = async (e) => {
+
+  const handleChangeImage = async (e: ChangeEvent<HTMLInputElement>) => {
     const file = e.target.files[0];
     const imageUrl = URL.createObjectURL(file);
     const data = await uploadFile(file);
+    console.log(data)
     setAvatarUrl(data.url);
   };
 
-  const uploadFile = async (file) => {
+  const uploadFile = async (file: File) => {
     const formData = new FormData();
     formData.append("photo", file);
     const { data } = await coreAxios({
@@ -30,7 +31,7 @@ export const ChooseAvatarStep = () => {
         "Content-Type": "multypart/form-data",
       },
     });
-    return data;  
+    return data;
   };
 
   return (

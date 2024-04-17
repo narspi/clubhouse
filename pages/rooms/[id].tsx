@@ -4,9 +4,12 @@ import Link from 'next/link';
 import { ArrowLeftIcon } from "@heroicons/react/20/solid";
 import { Room } from "../../components/Room";
 import coreAxios from "../../core/axios";
+import { useRouter } from "next/router";
 
 export const RoomPage = ({room}) => {
-
+  const router = useRouter();
+  const {id} = router.query;
+  console.log(id)
   return (
     <Wrapper>
       <Header />

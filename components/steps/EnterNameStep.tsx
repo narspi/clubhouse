@@ -1,18 +1,23 @@
-import { useContext,useState } from "react";
+import { useContext, useState, ChangeEvent } from "react";
 import { MainContext } from "../../pages";
 import { WhiteBlock } from "../WhiteBlock";
 import { StepInfo } from "./StepInfo";
 import { ArrowRightIcon } from "@heroicons/react/20/solid";
 
 export const EnterNameStep = () => {
-  const { onNextStep,userData } = useContext(MainContext);
-  const [inputValue,setInputValue] = useState(userData.fullName? userData.fullName: '');
+  const { onNextStep, userData, setUserData } = useContext(MainContext);
+  const [inputValue, setInputValue] = useState(
+    userData.fullName ? userData.fullName : ""
+  );
 
-  const handlerChangeInput = e => {
+  const handlerChangeInput = (e: ChangeEvent<HTMLInputElement>) => {
     setInputValue(e.target.value);
-  }
+    setUserData(
+      ({ fullName }: { fullName?: string }) => (fullName = e.target.value)
+    );
+  };
 
-  const nextDisabled = inputValue.length > 0? false: true;
+  const nextDisabled = inputValue.length > 0 ? false : true;
 
   return (
     <div className="m-auto text-center">

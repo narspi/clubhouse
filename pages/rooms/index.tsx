@@ -1,10 +1,10 @@
-const file = require('../public/data.json');
+const file = require('../../public/data.json');
 
-import { Wrapper } from "../components/Wrapper";
-import { Header } from "../components/Header";
+import { Wrapper } from "../../components/Wrapper";
+import { Header } from "../../components/Header";
 import { PlusIcon } from "@heroicons/react/20/solid";
-import { ConversationCard } from "../components/ConversationCard";
-import coreAxios from "../core/axios";
+import { ConversationCard } from "../../components/ConversationCard";
+import coreAxios from "../../core/axios";
 import { useEffect, useState } from "react";
 
 const Rooms = (props) => {

@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { ChangeEvent, useState } from "react";
 import { WhiteBlock } from "../WhiteBlock";
 import { StepInfo } from "./StepInfo";
 import { ArrowRightIcon } from "@heroicons/react/20/solid";
@@ -12,7 +12,7 @@ export const EnterCodeStep = () => {
   const nextDisabled = codes.some((v) => !v);
 
 
-  const handleChangeInput = (e) => {
+  const handleChangeInput = (e: ChangeEvent<HTMLInputElement>) => {
     const id = Number(e.target.getAttribute("id")) - 1;
     const value = e.target.value;
     setCodes((prev) => {
@@ -20,7 +20,10 @@ export const EnterCodeStep = () => {
       newArr[id] = value;
       return newArr;
     });
-    if (e.target.nextSibling && value) e.target.nextSibling.focus();
+    if (e.target.nextSibling && value) {
+      const elem = e.target.nextSibling as HTMLInputElement;
+      elem.focus();
+    };
   };
 
   const fooOnSubmit = async () => {
@@ -52,7 +55,7 @@ export const EnterCodeStep = () => {
                 maxLength={1}
                 id="1"
                 value={codes[0]}
-                onChange={handleChangeInput}
+                onChange={e=>console.log(e)}
               />
               <input
                 className="w-11 py-2 px-4 rounded border mr-2 font-bold"
