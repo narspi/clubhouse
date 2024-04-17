@@ -4,7 +4,7 @@ import { Strategy as JwtStrategy, ExtractJwt } from "passport-jwt";
 import Config from "../config/env";
 import sequelize from "../db/core";
 import User from "../db/models/user";
-import { createJwtToken } from "../utils/createJwtToken";
+// import { createJwtToken } from "../utils/createJwtToken";
 
 const opts = {
   jwtFromRequest: ExtractJwt.fromAuthHeaderAsBearerToken(),
