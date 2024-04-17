@@ -1,4 +1,4 @@
-import Config from "./config/env";
+// import Config from "./config/env";
 import express from "express";
 import session from "express-session";
 import { passport } from "./core/passport";
@@ -6,7 +6,7 @@ import multer from "multer";
 import cors from "cors";
 import nanoidPack from "nanoid";
 import Code from "./db/models/code";
-import Axios from "axios";
+// import Axios from "axios";
 
 const nanoid = nanoidPack.nanoid;
 
