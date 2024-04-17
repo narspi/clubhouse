@@ -1,5 +1,5 @@
 import Config from "./config/env";
-import express, { Express } from "express";
+import express from "express";
 import session from "express-session";
 import { passport } from "./core/passport";
 import multer from "multer";
